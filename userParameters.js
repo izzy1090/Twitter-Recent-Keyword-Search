@@ -15,16 +15,16 @@ var desiredFilename = '';
 
 // In the future, add code that turns the searchTerm into a txt file name
 
-// declared func accepts a searchTerm and filename to change globally declared variables 
+// declared func accepts a search term and to change globally declared variables 
 // input: userSearch and userFilename
 // output: none or error message 
-function userInput(userSearch, userFilename) {
-    // would like to have the function assign to global variables
-    // if search and filename exist
-    if (userSearch && userFilename){
-        // change global variables to be passed-in args
+function userInput(userSearch) {
+    // if user search exists
+    if (userSearch){
+        // change searchBy to be passed-in arg
         searchBy = userSearch;
-        desiredFilename = userFilename; }
+        // convert userFilename to be an accepted .txt file format
+        desiredFilename = `${userSearch}.txt`; }
     // else print an error message 
     else {
         console.log("An error occurred...")
@@ -32,7 +32,7 @@ function userInput(userSearch, userFilename) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("Father's Day", 'fathers_day.txt');
+userInput("Elden Ring");
 
 module.exports = {
     finalTweets,

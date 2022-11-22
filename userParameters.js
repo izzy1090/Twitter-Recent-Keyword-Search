@@ -4,7 +4,7 @@
 // variable declarations in the above scripts to ensure scripts run properly. 
 
 // To run script change the passed-in input for userInput below and run node searchTwitter.js
-// After, create a folder where want to store your results and run node cleanDirectory.js
+// After you're done run node cleanDirectory.js to clean up your results.
 
 // declared global variable to display tweet results
 var finalTweets;

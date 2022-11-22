@@ -2,14 +2,15 @@
 const generateTweets = require('./generateTweets')
 const readingFile = require('./readFile')
 const userParameters = require('./userParameters')
+const filter = require('./recursiveFilter')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');
 const { builtinModules } = require('module');
 
-// // variable declaration to return the exact time by mins.
+// variable declaration to return the exact time by mins.
 const exactMinute = new Date().getMinutes();
-// // variable declaration to generate a unique filename
+// variable declaration to generate a unique filename
 const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_').toLowerCase()
 // variable declaration to generate today's date for folder directory
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
@@ -42,40 +43,15 @@ filterResults().then( (dataFromFile) => {
     }
     return currTweets
 })
-    
-// promises to recursively iterate over tweets
-    // creates new object with user + corresponding tweets as key/value pair
+// then promises to store filtered tweets as a variable
+    // and initialize it to our finalTweets variable on userParameters.js
 .then ((tweets)=>{
-    // function declaration of recursiveFilter
-    // input: object and array of keywords
-    // output: a new object
-    function recursiveFilter (object, output = {}) {
-        // Once object has been sliced down - base case
-        if (object[0] === undefined) {
-            // return our newly declared object
-            return output; }
-        // if output object is empty and first keyword matches key of first passed-in object
-        else if (!output[Object.values(object[0])[1]]) {
-            // key for new object is id # of user
-            // value is the tweet itself
-            output[Object.values(object[0])[1]] = [Object.values(object[0])[2]] } 
-        // otherwise push remaining key / value pairs after
-        else {
-            output[Object.values(object[0])[1]].push(Object.values(object[0])[2]) }
-        // begin our recursion
-        return recursiveFilter(object.splice(1), output);
-    }
     // declared variable to store evaluated results of invoking recursion
-    const filteredTweets = recursiveFilter(tweets);
-    // pass to finalTweets variable from earlier to use in global memory
+    const filteredTweets = filter.recursiveFilter(tweets);
+    // then, pass to finalTweets declared on userParameters.js
     userParameters.finalTweets = filteredTweets;
 })
-
-// logging final results of recursive filter after 1.55 seconds
+// logs final results of recursive filter after 1.55 seconds
 setTimeout(()=>{
     console.log(userParameters.finalTweets)
 }, 1600)
-
-module.exports = {
-    uniqueFilename
-}

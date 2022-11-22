@@ -1,7 +1,7 @@
-// required for earlier versions of node
+// fetch declaration required for earlier versions of node
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-// dependencies needed to run script
+// Dependencies needed to run script
 const fs = require('fs')
 const { get } = require('http');
 const { resolve } = require('path');

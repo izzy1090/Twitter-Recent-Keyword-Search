@@ -1,4 +1,4 @@
-// dependencies needed to run script
+// Dependencies needed to run script
 const fs = require('fs')
 const {readFileSync, promises: fsPromises} = require('fs');
 

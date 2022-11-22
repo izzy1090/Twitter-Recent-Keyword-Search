@@ -1,4 +1,4 @@
-// Dependency required to run script
+// Dependencies required to run script
 const fs = require('fs');
 const userParameters = require('./userParameters')
 

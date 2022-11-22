@@ -1,27 +1,27 @@
-// scripts needed to run this script
-const generatedTweets = require('./generateTweets')
-const readInFile = require('./readFile')
+// JavaScript files needed to run this script
+const generateTweets = require('./generateTweets')
+const readingFile = require('./readFile')
+const parameters = require('./userParameters')
 
-// finalResults declaration to store filtered tweets when done
-var finalResults;
-
-// instantly getRecentTweets invocation with user gen. keyword and filename
-    // promises to return that file to a variable and log results
-function printOut() {
+// declared func filterResults which grabs tweets and saves data as a file.
+    // Func then grabs file and returns filtered results 
+// input: no args
+// output: object with users as keys and tweets as corresponding values
+function filterResults() {
     return new Promise((resolve, reject)=> {
         // Creates text file instantly
         setTimeout(()=>{
             // getRecentTweets invocation, pass in keyword(s) and desired filename
-            generatedTweets.getRecentTweets("Mother's Day", 'mothers_day.txt');
+            generateTweets.getRecentTweets(parameters.searchBy, parameters.desiredFilename);
         },0);
         setTimeout( () => {
             // declared variable to store generated results of previous invocation
-            const file = readInFile.asyncReadFile('mothers_day.txt')
+            const file = readingFile.asyncReadFile(parameters.desiredFilename)
             resolve(file) }, 1500)
     })
 }
 // then promises to format data for recursive filter below
-printOut().then( (dataFromFile) => {
+filterResults().then( (dataFromFile) => {
     // declared empty object to store tweets
     let currTweets = {};
     // move tweet JSON out of its parent object / array and removes word 'data'
@@ -56,10 +56,16 @@ printOut().then( (dataFromFile) => {
     }
     // declared variable to store evaluated results of invoking recursion
     const filteredTweets = recursiveFilter(tweets);
-    // pass to finalResults variable from earlier to use in global memory
-    finalResults = filteredTweets
+    // pass to finalTweets variable from earlier to use in global memory
+    parameters.finalTweets = filteredTweets;
 })
 
-setTimeout(()=> {
-    console.log(finalResults)
+// filterResults("Mother's Day", 'mothers_day.txt');
+
+setTimeout(()=>{
+    console.log(parameters.finalTweets)
 }, 1550)
+
+module.exports = {
+    filterResults, 
+}

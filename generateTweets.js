@@ -26,12 +26,6 @@ const getRecentTweets = async (keyword, filename) => {
             .then( data => {
                 // subsequent JSON is converted into usable JSON of strings
                 const textDoc = JSON.stringify(data)
-
-
-                // // used to test between files - possibly delete later
-                // console.log(`generated upon initial search: ${textDoc}`)
-
-
                 // exports final JSON as a .txt file with user provided filename
                 return fs.writeFile(filename, textDoc, function(err){
                     if (err){

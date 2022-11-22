@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cron": "^2.1.0",
     "dotenv": "^16.0.3",
+    "fetch-node": "^0.0.1",
     "fs": "^0.0.1-security",
     "node-cron": "^3.0.2",
     "node-fetch": "^3.3.0",

@@ -10,9 +10,9 @@ const { builtinModules } = require('module');
 // // variable declaration to return the exact time by mins.
 const exactMinute = new Date().getMinutes();
 // // variable declaration to generate a unique filename
-const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_')
+const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_').toLowerCase()
 // variable declaration to generate today's date for folder directory
-const today = new Date().toDateString().split(' ').join('_');
+const today = new Date().toDateString().split(' ').join('_').toLowerCase();
 
 // declared func filterResults which grabs tweets and saves data as a file.
     // Func then grabs file and returns filtered results 

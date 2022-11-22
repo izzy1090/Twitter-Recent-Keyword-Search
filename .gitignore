@@ -1,4 +1,3 @@
 // file to ignore during gitHub uploads
 .env
 node_modules
-elden_ring

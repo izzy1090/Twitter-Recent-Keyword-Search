@@ -1,13 +1,10 @@
-// JavaScript files needed to run this script
-const filterTweets = require('./searchTwitter')
-
 // IMPORTANT NOTE!
-// Variables declared here are shared in filterTweets.js currently. Changing variable titles here
-// affects other scripts. Make sure to change the variable declarations in the above scripts to ensure
-// program works properly. 
+// Variables declared here are shared in searchTwitter.js & cleanDirectory.js currently. 
+// Changing variable titles here affects other scripts. Make sure to change 
+// variable declarations in the above scripts to ensure scripts run properly. 
 
 // To run script change the passed-in input for userInput below and run node searchTwitter.js
-// After, create a folder you want to store your results and run node cleanDirectory.js
+// After, create a folder where want to store your results and run node cleanDirectory.js
 
 // declared global variable to display tweet results
 var finalTweets;
@@ -35,7 +32,7 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("Elden Ring");
+userInput("environmentalism");
 
 module.exports = {
     searchBy, 

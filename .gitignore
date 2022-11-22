@@ -1,0 +1,3 @@
+// file to ignore what gets uploaded to gitHub
+.env
+node_modules

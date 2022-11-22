@@ -5,7 +5,7 @@ const fs = require('fs');
 const {exec} = require('child_process');
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../Twitter-Recent-Keyword-Search');
+const fileDirectory = fs.readdirSync('../recent-searches');
 
 // iterate over files and search for strings containing .txt 
 fileDirectory.forEach(el=>{

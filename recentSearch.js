@@ -1,7 +1,7 @@
 // required for earlier versions of node
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-// dependencies needed
+// dependencies needed to run script
 const fs = require('fs')
 const {readFileSync, promises: fsPromises} = require('fs');
 const { get } = require('http');
@@ -12,19 +12,22 @@ const bearerToken = process.env.BEARER_TOKEN
 // start-up message
 console.log('Searching Twitter from the last 7 days...')
 
-// Function returns Twitter results from last 7 days
+// Function declaration for getRecentTweets 
+    // func fetches tweets based on keyword(s) from last 7 days
 // input: keyword and filename
-// output: txt file of returned search results
+// output: txt file of returned search finalResults
 const getRecentTweets = async (keyword, filename) => {
     try {
+        // Grabs tweets from Twitter's API V2 (only have access to V2 currently)
         await fetch(`https://api.twitter.com/2/tweets/search/recent?query=${keyword}`, {
             headers: {
                 'Authorization': 'Bearer ' + bearerToken } })
-            // converts return searchResults promise into a .json
-            .then( searchResults => searchResults.json() )
-            // allows for JSON to be converted into a text file and exports it
+            // converts returned searchfinalResults promise into a .JSON
+            .then( searchfinalResults => searchfinalResults.json() )
             .then( data => {
+                // subsequent JSON is converted into usable JSON of strings
                 const textDoc = JSON.stringify(data)
+                // exports final JSON as a .txt file with user provided filename
                 return fs.writeFile(filename, textDoc, function(err){
                     if (err){
                         console.log(err) }
@@ -35,43 +38,45 @@ const getRecentTweets = async (keyword, filename) => {
         }
 }
 
-// function to accept a file and convert it to an array
+// function declaration asyncReadFile to read in a file 
+    // and convert contents from file into an array of objects
 // input: text file 
 // output: array
 const asyncReadFile = async (filename) => {
     try {
-      const contents = await fsPromises.readFile(filename, 'utf-8');
+        // awaits promise for 'fs' to read in file
+        const contents = await fsPromises.readFile(filename, 'utf-8');
+        // then parse it out to an array of objects
         const backToJSON = JSON.parse(contents)
+        // then returns it back to func
         return backToJSON;
     } catch (err) {
       console.log(err);
     }
 }
-// final results to store our filtered tweets when we're done
-let results;
+// finalResults declaration to store filtered tweets when we're done
+var finalResults;
 
-// function to invocate getRecentTweets with user generated keyword and filename instantly
-    // then promises to return that file to a variable
+// instant getRecentTweets invocation with user gen. keyword and filename
+    // promises to return that file to a variable
 function toVariable() {
     return new Promise((resolve, reject)=> {
         // Creates text file instantly
         setTimeout(()=>{
-            // enter keyword you want to search and the file you want to save it as
+            // getRecentTweets invocation, pass in keyword(s) and desired filename
             getRecentTweets('Elon Musk','Elon_Musk.txt')
         },0);
         setTimeout( () => {
-            // declared variable to store returns results of the file
+            // declared variable to store generated results of previous invocation
             const file = asyncReadFile('./Elon_Musk.txt')
             resolve(file) }, 1500)
     })
 }
-
-// continuation of promise in which file generated and stored on hard drive 
-    // and is then formatted so a recursion can filter data later on
+// then promises to format data for recursive filter below
 toVariable().then( (dataFromFile) => {
-    // declared empty object to store latest tweets
+    // declared empty object to store tweets
     let currTweets = {};
-    // move tweets out of their parent object and removes the word 'data'
+    // move tweet JSON out of its parent object / array and removes word 'data'
     for (const key in dataFromFile) {
         if (key === "data" && Object.keys(currTweets).length === 0) {
             currTweets = dataFromFile[key] } 
@@ -79,31 +84,34 @@ toVariable().then( (dataFromFile) => {
     return currTweets
 })
     
-// then take those formatted tweets and recurse through them to create a new object with the desired filters
+// promises to recursively iterate over tweets
+    // creates new object with user + corresponding tweets as key/value pair
 .then ((tweets)=>{
-    // use a recursive function to create and return an object
+    // function declaration of recursiveFilter
     // input: object and array of keywords
     // output: a new object
-    function recurse (object, output = {}) {
-        // Once object has been sliced down
+    function recursiveFilter (object, output = {}) {
+        // Once object has been sliced down - base case
         if (object[0] === undefined) {
             // return our newly declared object
             return output; }
         // if output object is empty and first keyword matches key of first passed-in object
         else if (!output[Object.values(object[0])[1]]) {
             // key for new object is id # of user
-                // value is the tweet itself
+            // value is the tweet itself
             output[Object.values(object[0])[1]] = [Object.values(object[0])[2]] } 
         // otherwise push remaining key / value pairs after
         else {
             output[Object.values(object[0])[1]].push(Object.values(object[0])[2]) }
         // begin our recursion
-        return recurse(object.splice(1), output);
+        return recursiveFilter(object.splice(1), output);
     }
-    const filteredTweets = recurse(tweets);
-    results = filteredTweets
+    // declared variable to store evaluated results of invoking recursion
+    const filteredTweets = recursiveFilter(tweets);
+    // pass to finalResults variable from earlier to use in global memory
+    finalResults = filteredTweets
 })
 
 setTimeout(()=> {
-    console.log(results)
+    console.log(finalResults)
 }, 1550)

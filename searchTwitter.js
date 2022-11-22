@@ -1,7 +1,7 @@
 // JavaScript files needed to run this script
 const generateTweets = require('./generateTweets')
 const readingFile = require('./readFile')
-const parameters = require('./userParameters')
+const userParameters = require('./userParameters')
 
 // declared func filterResults which grabs tweets and saves data as a file.
     // Func then grabs file and returns filtered results 
@@ -12,11 +12,11 @@ function filterResults() {
         // Creates text file instantly
         setTimeout(()=>{
             // getRecentTweets invocation, pass in keyword(s) and desired filename
-            generateTweets.getRecentTweets(parameters.searchBy, parameters.desiredFilename);
+            generateTweets.getRecentTweets(userParameters.searchBy, userParameters.desiredFilename);
         },0);
         setTimeout( () => {
             // declared variable to store generated results of previous invocation
-            const file = readingFile.asyncReadFile(parameters.desiredFilename)
+            const file = readingFile.asyncReadFile(userParameters.desiredFilename)
             resolve(file) }, 1500)
     })
 }
@@ -57,15 +57,10 @@ filterResults().then( (dataFromFile) => {
     // declared variable to store evaluated results of invoking recursion
     const filteredTweets = recursiveFilter(tweets);
     // pass to finalTweets variable from earlier to use in global memory
-    parameters.finalTweets = filteredTweets;
+    userParameters.finalTweets = filteredTweets;
 })
 
-// filterResults("Mother's Day", 'mothers_day.txt');
-
+// logging final results of recursive filter after 1.55 seconds
 setTimeout(()=>{
-    console.log(parameters.finalTweets)
+    console.log(userParameters.finalTweets)
 }, 1550)
-
-module.exports = {
-    filterResults, 
-}

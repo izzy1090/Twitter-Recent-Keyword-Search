@@ -1,10 +1,12 @@
 // JavaScript files needed to run this script
-const test = require('./filterTweets')
+const filterTweets = require('./searchTwitter')
 
 // IMPORTANT NOTE!
 // Variables declared here are shared in filterTweets.js currently. Changing variable titles here
 // affects other scripts. Make sure to change the variable declarations in the above scripts to ensure
 // program works properly. 
+
+// To run script change the passed-in input for userInput below and run node filterTweets.js
 
 // declared global variable to display tweet results
 var finalTweets;
@@ -15,15 +17,15 @@ var desiredFilename = '';
 
 // In the future, add code that turns the searchTerm into a txt file name
 
-// declared func accepts a search term and to change globally declared variables 
-// input: userSearch and userFilename
+// declared func accepts a search term to reinitialize it globally 
+// input: userSearch
 // output: none or error message 
 function userInput(userSearch) {
     // if user search exists
     if (userSearch){
         // change searchBy to be passed-in arg
         searchBy = userSearch;
-        // convert userFilename to be an accepted .txt file format
+        // convert userSearch to be an accepted .txt file format
         desiredFilename = `${userSearch}.txt`; }
     // else print an error message 
     else {
@@ -35,7 +37,7 @@ function userInput(userSearch) {
 userInput("Elden Ring");
 
 module.exports = {
-    finalTweets,
     searchBy, 
-    desiredFilename
+    desiredFilename,
+    finalTweets
 }

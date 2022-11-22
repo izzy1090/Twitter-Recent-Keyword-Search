@@ -15,13 +15,13 @@ const {exec} = require('child_process');
     day of week	0-7 (or names, 0 or 7 are sunday) 
 */
 
-// invoke cron's builtin function .schedule to invoke filterTweet script every nth times
-cron.schedule('30 * * * * *', () => {
-  console.log('running every 30 seconds');
-    // declared a function to JS script 'searchTwitter.js'
+// invoke cron function .schedule to invoke filterTweet script every nth times
+cron.schedule('01 * * * * *', () => {
+  console.log('Searching Twitter every minute');
+    // declared a function to run JS script 'searchTwitter.js'
     // input: accepts a node command callback, error, stdout, and stderr messages
     // output: logs returned results of invoking 'node searchTwitter.js'
-    const executeProgram = exec('node searchTwitter.js', 
+    exec('node searchTwitter.js', 
         (error, stdout, stderr) => {
             console.log(stdout)
             console.log(stderr)

@@ -3,6 +3,17 @@ const generateTweets = require('./generateTweets')
 const readingFile = require('./readFile')
 const userParameters = require('./userParameters')
 
+// needed for the 'child process' module of nodejs to execute shell commands
+const {exec} = require('child_process');
+const { builtinModules } = require('module');
+
+// // variable declaration to return the exact time by mins.
+const exactMinute = new Date().getMinutes();
+// // variable declaration to generate a unique filename
+const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_')
+// variable declaration to generate today's date for folder directory
+const today = new Date().toDateString().split(' ').join('_');
+
 // declared func filterResults which grabs tweets and saves data as a file.
     // Func then grabs file and returns filtered results 
 // input: no args
@@ -12,11 +23,11 @@ function filterResults() {
         // Creates text file instantly
         setTimeout(()=>{
             // getRecentTweets invocation, pass in keyword(s) and desired filename
-            generateTweets.getRecentTweets(userParameters.searchBy, userParameters.desiredFilename);
+            generateTweets.getRecentTweets(userParameters.searchBy, `${today}${uniqueFilename}`);
         },0);
         setTimeout( () => {
             // declared variable to store generated results of previous invocation
-            const file = readingFile.asyncReadFile(userParameters.desiredFilename)
+            const file = readingFile.asyncReadFile(`${today}${uniqueFilename}`)
             resolve(file) }, 1500)
     })
 }
@@ -63,4 +74,8 @@ filterResults().then( (dataFromFile) => {
 // logging final results of recursive filter after 1.55 seconds
 setTimeout(()=>{
     console.log(userParameters.finalTweets)
-}, 1550)
+}, 1600)
+
+module.exports = {
+    uniqueFilename
+}

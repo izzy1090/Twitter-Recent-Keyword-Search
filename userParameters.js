@@ -6,7 +6,8 @@ const filterTweets = require('./searchTwitter')
 // affects other scripts. Make sure to change the variable declarations in the above scripts to ensure
 // program works properly. 
 
-// To run script change the passed-in input for userInput below and run node filterTweets.js
+// To run script change the passed-in input for userInput below and run node searchTwitter.js
+// After, create a folder you want to store your results and run node cleanDirectory.js
 
 // declared global variable to display tweet results
 var finalTweets;

@@ -51,7 +51,7 @@ filterResults().then( (dataFromFile) => {
     // then, pass to finalTweets declared on userParameters.js
     userParameters.finalTweets = filteredTweets;
 })
-// logs final results of recursive filter after 1.55 seconds
-setTimeout(()=>{
-    console.log(userParameters.finalTweets)
-}, 1600)
+// // logs final results of recursive filter after 1.55 seconds
+// setTimeout(()=>{
+//     console.log(userParameters.finalTweets)
+// }, 1600)

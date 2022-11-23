@@ -32,7 +32,7 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("environmentalism");
+userInput("Elon Musk");
 
 module.exports = {
     searchBy, 

@@ -21,7 +21,7 @@ cron.schedule('01 * * * * *', () => {
     // declared a function to run JS script 'searchTwitter.js'
     // input: accepts a node command callback, error, stdout, and stderr messages
     // output: logs returned results of invoking 'node searchTwitter.js'
-    exec('node searchTwitter.js', 
+    exec('node combineSearches.js', 
         (error, stdout, stderr) => {
             console.log(stdout)
             console.log(stderr)

@@ -8,11 +8,11 @@ const filter = require('./recursiveFilter')
 const {exec} = require('child_process');
 const { builtinModules } = require('module');
 
-// variable declaration to return the exact time by mins.
+// return the exact time by mins.
 const exactMinute = new Date().getMinutes();
-// variable declaration to generate a unique filename
+// generate a unique filename
 const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_').toLowerCase()
-// variable declaration to generate today's date for folder directory
+// generate today's date for folder directory
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
 
 // declared func filterResults which grabs tweets and saves data as a file.
@@ -51,7 +51,7 @@ filterResults().then( (dataFromFile) => {
     // then, pass to finalTweets declared on userParameters.js
     userParameters.finalTweets = filteredTweets;
 })
-// // logs final results of recursive filter after 1.55 seconds
-// setTimeout(()=>{
-//     console.log(userParameters.finalTweets)
-// }, 1600)
+// logs final results of recursive filter after 1.55 seconds
+setTimeout(()=>{
+    console.log(userParameters.finalTweets)
+}, 1600)

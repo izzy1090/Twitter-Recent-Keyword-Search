@@ -6,14 +6,12 @@
 // To run script change the passed-in input for userInput below and run node searchTwitter.js
 // After you're done run node cleanDirectory.js to clean up your results.
 
-// declared global variable to display tweet results
-var finalTweets;
-
 // declared global variables to change with userInput
 var searchBy = "";
 var desiredFilename = '';
 
-// In the future, add code that turns the searchTerm into a txt file name
+// declared global variable to display tweet results
+var finalTweets;
 
 // declared func accepts a search term to reinitialize it globally 
 // input: userSearch
@@ -32,10 +30,10 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("Elon Musk");
+userInput("bird migration");
 
 module.exports = {
-    searchBy, 
+    finalTweets,
     desiredFilename,
-    finalTweets
+    searchBy
 }

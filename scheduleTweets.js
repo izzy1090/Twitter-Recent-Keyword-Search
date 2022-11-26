@@ -21,13 +21,13 @@ cron.schedule('01 * * * * *', () => {
     // declared a function to run JS script 'searchTwitter.js'
     // input: accepts a node command callback, error, stdout, and stderr messages
     // output: logs returned results of invoking 'node searchTwitter.js'
-    exec('node combineSearches.js', 
+    exec('node searchTwitter.js', 
         (error, stdout, stderr) => {
             console.log(stdout)
             console.log(stderr)
             // if there is an error, log it to the console
             if (error !== null){
-                console.log('execution error: ${error}')
+                console.log(`execution error: ${error}`)
             }
     });
 });

@@ -30,7 +30,7 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("bird migration");
+userInput("Gundams");
 
 module.exports = {
     finalTweets,

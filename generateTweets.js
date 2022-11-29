@@ -21,8 +21,8 @@ const getRecentTweets = async (keyword, filename) => {
         await fetch(`https://api.twitter.com/2/tweets/search/recent?query=${keyword}`, {
             headers: {
                 'Authorization': 'Bearer ' + bearerToken } })
-            // converts returned searchfinalResults promise into a .JSON
-            .then( searchfinalResults => searchfinalResults.json() )
+            // converts returned searchFinalResults promise into a .JSON
+            .then( searchFinalResults => searchFinalResults.json() )
             .then( data => {
                 // subsequent JSON is converted into usable JSON of strings
                 const textDoc = JSON.stringify(data)

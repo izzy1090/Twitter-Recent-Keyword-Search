@@ -17,7 +17,7 @@ To sign up for a developer account:
 
 4) Check your email to verify your developer account. Look for an email from developer-accounts@twitter.com that has the subject line: "Verify your Twitter Developer Account" Note: the developer-accounts@twitter.com email is not available for inbound requests.
 
-5) You should now have access to the Developer Portal to create a new App and Project with Essential access (Essential access is all that's required for this program currently).
+5) You should now have access to the Developer Portal to create a new App and 'Project' with Essential access (Essential access is all that's required for this program currently).
 
 After you've created your developer account, you'll need to generate the necessary keys and tokens as mentioned above. From the same developer.twitter.com URL, navigate to the Project dashboard and create a new app by clicking "Add App". 
 

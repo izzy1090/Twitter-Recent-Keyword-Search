@@ -12,7 +12,7 @@ const {exec} = require('child_process');
 const { exit } = require('process');
 
 // declared variable to store info on the filepath
-const fileDirectory = fs.readdirSync('../Twitter-Recent-Keyword-Search')
+const fileDirectory = fs.readdirSync('../searching-twitter')
 // generate today's date for folder directory
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
 // creates a unique filename to search during our iteration below

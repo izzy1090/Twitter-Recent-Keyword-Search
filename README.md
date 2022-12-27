@@ -1,5 +1,5 @@
 # searching-twitter
-The purpose of this project was to utilize Twitter's API to generate search results and log them to your preferred IDE's console. The program also saves a record of each search to your local harddrive so you can utilize the data as you see fit.
+The purpose of this project was to utilize Twitter's API to generate search results and log them to your preferred IDE's console. The program also saves a record of each search to your local hard drive so you can utilize the data as you see fit.
 
 To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch into the main directory.
 
@@ -21,6 +21,42 @@ To sign up for a developer account:
 
 After you've created your developer account, you'll need to generate the necessary keys and tokens as mentioned above. From the same developer.twitter.com URL, navigate to the Project dashboard and create a new app by clicking "Add App". 
 
-Add a name for the app (the name does not affect the program's functionality) and after a unique name has been accepted by Twitter, you'll recieve the required authentication keys / tokens. Make sure to save these somewhere safe and secret before navigating off the web page or you'll have to generate a new set. 
+Add a name for the app (the name does not affect the program's functionality) and after a unique name has been accepted by Twitter, you'll receive the required authentication keys / tokens. Make sure to save these somewhere safe and secret before navigating off the web page or you'll have to generate a new set. 
 
-Copy your API key, 
+Create a .env file in your directory using the .env_sample file as a template and replace the placeholder text with your newly generated keys / tokens.
+
+Finally install all the required node modules using the below command in your CLI: 
+```
+npm install
+```
+
+To generate your desired search results, navigate to the 'searchParameters-node.js' script and change the passed-arguments for the userInput function (don't forget to save your document afterwards). Now you should be ready to pull tweets from Twitter's API!
+
+**Here's a list of the features available to run via Node JS**
+
+Searches Twitter for relevant tweets from the past 7 days:
+```
+node searchTwitter-node.js
+```
+
+Utilizes node Cron to schedule tweets to run _n_ of times. Please refer to the documentation below for more information on how Cron works:
+
+https://www.npmjs.com/package/node-cron
+
+You can use the below URL to generate the required syntax for scheduling Cron to run your desired _n_ of times (make sure to update the 'scheduleTwitterSearch-node.js' script): 
+
+https://crontab.guru/
+
+```
+node scheduleTwitterSearch-node.js
+```
+
+Creates a summary document which compiles your past .txt searches into one document. It's important to note that this function evaluates .txt files in your directory, so please run 'node cleanDirectory.js' to prevent other searches from compiling into your summary file.
+```
+node combineTweets-node.js
+```
+
+Cleans up the file directory and moves recent searches into a folder using the search parameters as a folder name.
+```
+node cleanDirectory-node.js
+```

@@ -1,6 +1,6 @@
 // file to ignore during gitHub uploads
 .env
 node_modules
-Past_Searches
+past_searches
 .gitignore
-.DS_STORE
+.DS_Store

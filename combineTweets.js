@@ -3,7 +3,7 @@ const fs = require('fs')
 const {readFileSync, promises: fsPromises} = require('fs');
 
 // JavaScript files needed to run this script
-const userParameters = require('./userParameters')
+const userParameters = require('./searchParameters')
 const readingFile = require('./readFile')
 const filter = require('./recursiveFilter')
 
@@ -11,10 +11,6 @@ const filter = require('./recursiveFilter')
 const {exec} = require('child_process');
 const { uniq } = require('shelljs');
 const { exit } = require('process');
-
-// Important Note: I might not be grabbing tweets from the same user consecutively, because 
-// Object.assign combines results into one object and overwrites duplicate keys. It might be worth
-// assigning recursive filter to target edit_history_ids as key return instead. Need to confirm.
 
 // declared variable to store info on the filepath
 const fileDirectory = fs.readdirSync('../Twitter-Recent-Keyword-Search')

@@ -1,6 +1,6 @@
 // Dependencies required to run script
 const fs = require('fs');
-const userParameters = require('./userParameters')
+const userParameters = require('./searchParameters')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');

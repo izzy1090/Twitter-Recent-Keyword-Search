@@ -3,7 +3,7 @@ const fs = require('fs')
 const {readFileSync, promises: fsPromises} = require('fs');
 
 // JavaScript files needed to run this script
-const userParameters = require('./searchParameters')
+const userParameters = require('./searchParameters-node')
 const readingFile = require('./readFile')
 const filter = require('./recursiveFilter')
 

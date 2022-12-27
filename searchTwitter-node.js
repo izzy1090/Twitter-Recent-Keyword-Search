@@ -1,7 +1,7 @@
 // JavaScript files needed to run this script
-const generateTweets = require('./twitterApiCall')
+const generateTweets = require('./twitterApiCall-node')
 const readingFile = require('./readFile')
-const userParameters = require('./searchParameters')
+const userParameters = require('./searchParameters-node')
 const filter = require('./recursiveFilter')
 
 // needed for the 'child process' module of nodejs to execute shell commands

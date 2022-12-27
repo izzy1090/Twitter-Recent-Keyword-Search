@@ -1,6 +1,6 @@
 // Dependencies required to run script
 const fs = require('fs');
-const userParameters = require('./searchParameters')
+const userParameters = require('./searchParameters-node')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');
@@ -11,7 +11,7 @@ const { stderr } = require('process');
 const folderName = userParameters.desiredFilename.split(' ').join('_').replace('.txt','').toLowerCase()
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../Twitter-Recent-Keyword-Search');
+const fileDirectory = fs.readdirSync('../searching-twitter');
 
 // checks to see if folder associated with search exists
     

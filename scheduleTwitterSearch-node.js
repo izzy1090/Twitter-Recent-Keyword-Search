@@ -1,6 +1,6 @@
 // Dependencies needed to run this script
 const cron = require('node-cron')
-const userParameters = require('./searchParameters')
+const userParameters = require('./searchParameters-node')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');

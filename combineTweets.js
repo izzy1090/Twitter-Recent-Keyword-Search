@@ -7,9 +7,8 @@ const userParameters = require('./searchParameters')
 const readingFile = require('./readFile')
 const filter = require('./recursiveFilter')
 
-// needed for the 'child process' module of nodejs to execute shell commands
+// needed for the 'child process' module of nodejs to execute CLI commands
 const {exec} = require('child_process');
-const { uniq } = require('shelljs');
 const { exit } = require('process');
 
 // declared variable to store info on the filepath

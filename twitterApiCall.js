@@ -27,10 +27,11 @@ const getRecentTweets = async (keyword, filename) => {
                 // subsequent JSON is converted into usable JSON of strings
                 const textDoc = JSON.stringify(data)
                 // exports final JSON as a .txt file with user provided filename
-                return fs.writeFile(filename, textDoc, function(err){
+                fs.writeFile(filename, textDoc, function(err){
                     if (err){
                         console.log(err) }
-                })    
+                }) 
+                return {textDoc}   
             })
         } catch(err) {
             console.log(err) 

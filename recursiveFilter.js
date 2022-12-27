@@ -12,10 +12,10 @@ function recursiveFilter (object, output = {}) {
     else if (!output[Object.values(object[0])[1]]) {
         // key for new object is id # of user
         // value is the tweet itself
-        output[Object.values(object[0])[1]] = [Object.values(object[0])[2]] } 
+        output[`User ID: ${Object.values(object[0])[1]}`] = [`Tweet: ${Object.values(object[0])[2]}`] } 
     // otherwise push remaining key / value pairs after
     else {
-        output[Object.values(object[0])[1]].push(Object.values(object[0])[2]) }
+        output[`User ID: ${Object.values(object[0])[1]}`].push(`Tweet: ${Object.values(object[0])[2]}`) }
     // begin our recursion
     return recursiveFilter(object.splice(1), output);
 }

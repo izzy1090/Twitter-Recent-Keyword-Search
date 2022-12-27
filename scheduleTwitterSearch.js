@@ -1,5 +1,6 @@
 // Dependencies needed to run this script
 const cron = require('node-cron')
+const userParameters = require('./searchParameters')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');
@@ -16,8 +17,8 @@ const {exec} = require('child_process');
 */
 
 // invoke cron function .schedule to invoke filterTweet script every nth times
-cron.schedule('*/30 * * * *', () => {
-  console.log('Searching Twitter every 30 minutes for stuff about Gundams...');
+cron.schedule('* * * * *', () => {
+  console.log(`Searching Twitter every minute for stuff about ${userParameters.searchBy}...`);
     // declared a function to run JS script 'searchTwitter.js'
     // input: accepts a node command callback, error, stdout, and stderr messages
     // output: logs returned results of invoking 'node searchTwitter.js'

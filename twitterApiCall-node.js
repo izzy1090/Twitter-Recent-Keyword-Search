@@ -9,7 +9,7 @@ const config = require('dotenv').config()
 const bearerToken = process.env.BEARER_TOKEN
 
 // start-up message
-console.log('Searching Twitter from the last 7 days...')
+console.log('Results are from the last 7 days...')
 
 // Function declaration for getRecentTweets 
     // func fetches tweets based on keyword(s) from last 7 days

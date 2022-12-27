@@ -5,7 +5,7 @@ To use the program via Node JS, create a folder in your desired directory where 
 
 Create a separate .env file and use the .env_sample to format your .env file.
 
-Before performing a search, you will need to create a Twitter Developer account to generate an API Key, API Secret and Bearer Token for authentication with Twitter's API.
+Before performing a search, you will need to create a Twitter Developer account to generate an API Key, API Secret, Bearer Token, Access Token, and Access Token Secret for authentication with Twitter's API.
 
 To sign up for a developer account:
 
@@ -23,5 +23,4 @@ After you've created your developer account, you'll need to generate the necessa
 
 Add a name for the app (the name does not affect the program's functionality) and after a unique name has been accepted by Twitter, you'll recieve the required authentication keys / tokens. Make sure to save these somewhere safe and secret before navigating off the web page or you'll have to generate a new set. 
 
-
-
+Copy your API key, 

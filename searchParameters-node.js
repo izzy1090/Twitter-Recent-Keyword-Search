@@ -22,7 +22,7 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("Gundams");
+userInput("Elon Musk is");
 
 module.exports = {
     finalTweets,

@@ -1,11 +1,3 @@
-// IMPORTANT NOTE!
-// Variables declared here are shared in searchTwitter.js & cleanDirectory.js currently. 
-// Changing variable titles here affects other scripts. Make sure to change 
-// variable declarations in the above scripts to ensure scripts run properly. 
-
-// To run script change the passed-in input for userInput below and run node searchTwitter.js
-// After you're done run node cleanDirectory.js to clean up your results.
-
 // declared global variables to change with userInput
 var searchBy = "";
 var desiredFilename = '';

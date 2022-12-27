@@ -1,6 +1,5 @@
 // promises to recursively iterate over tweets
     // creates new object with user + corresponding tweets as key/value pair
-// function declaration of recursiveFilter
 // input: object and array of keywords
 // output: a new object
 function recursiveFilter (object, output = {}) {

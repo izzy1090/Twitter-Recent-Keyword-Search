@@ -3,3 +3,4 @@
 node_modules
 Past_Searches
 .gitignore
+.DS_STORE

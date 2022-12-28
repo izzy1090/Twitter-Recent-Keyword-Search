@@ -1,5 +1,5 @@
 # searching-twitter
-The purpose of this project was to utilize Twitter's API to generate search results and log them to your preferred IDE's console. The program also saves a record of each search to your local hard drive so you can utilize the data as you see fit.
+The purpose of this project was to utilize Twitter's API to generate search results and log them to your preferred IDE's console in addition to other features the program offers. The program saves a record of each search to your local hard drive so you can utilize the data as you see fit.
 
 To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch into the main directory.
 

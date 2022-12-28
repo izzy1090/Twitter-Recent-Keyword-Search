@@ -56,7 +56,7 @@ Creates a summary document which compiles your past .txt searches into one docum
 node combineTweets-node.js
 ```
 
-Cleans up the file directory and moves recent searches into a folder using the search parameters as a folder name.
+Cleans up the file directory and moves recent searches into a folder using search parameters as a folder name.
 ```
 node cleanDirectory-node.js
 ```

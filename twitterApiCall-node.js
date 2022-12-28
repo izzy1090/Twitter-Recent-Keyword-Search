@@ -3,13 +3,11 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 // Dependencies needed to run script
 const fs = require('fs')
-const { get } = require('http');
-const { resolve } = require('path');
 const config = require('dotenv').config()
 const bearerToken = process.env.BEARER_TOKEN
 
 // start-up message
-console.log('Results are from the last 7 days...')
+console.log('Results are from the last 7 days...\n')
 
 // Function declaration for getRecentTweets 
     // func fetches tweets based on keyword(s) from last 7 days
@@ -22,16 +20,20 @@ const getRecentTweets = async (keyword, filename) => {
             headers: {
                 'Authorization': 'Bearer ' + bearerToken } })
             // converts returned searchFinalResults promise into a .JSON
-            .then( searchFinalResults => searchFinalResults.json() )
-            .then( data => {
-                // subsequent JSON is converted into usable JSON of strings
-                const textDoc = JSON.stringify(data)
-                // exports final JSON as a .txt file with user provided filename
-                fs.writeFile(filename, textDoc, function(err){
-                    if (err){
-                        console.log(err) }
-                }) 
-                return {textDoc}   
+            .then( response => response.json() )
+            .then( rawTweets => {
+                // refers to 'data' key by value and moves tweets out of parent object
+                if ('data' in rawTweets){
+                    const cleanedTweets = Object.assign(rawTweets['data'])
+                    // subsequent JSON is converted into usable JSON of strings
+                    const textDoc = JSON.stringify(cleanedTweets)
+                    // exports final JSON as a .txt file with user provided filename
+                    fs.writeFile(filename, textDoc, function(err){
+                        if (err){
+                            console.log(err) }
+                    }) 
+                return {textDoc} 
+                }      
             })
         } catch(err) {
             console.log(err) 

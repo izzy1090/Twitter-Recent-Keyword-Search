@@ -17,8 +17,8 @@ const {exec} = require('child_process');
 */
 
 // invoke cron function .schedule to invoke filterTweet script every nth times
-cron.schedule('*/5 * * * *', () => {
-  console.log(`Searching Twitter every 30 minutes for stuff about ${userParameters.searchBy}...`);
+cron.schedule('*/1 * * * *', () => {
+  console.log(`Searching Twitter every minute for stuff about ${userParameters.searchBy}...`);
     // declared a function to run JS script 'searchTwitter.js'
     // input: accepts a node command callback, error, stdout, and stderr messages
     // output: logs returned results of invoking 'node searchTwitter.js'

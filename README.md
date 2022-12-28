@@ -51,7 +51,7 @@ https://crontab.guru/
 node scheduleTwitterSearch-node.js
 ```
 
-Creates a summary document which compiles your past .txt searches into one document. It's important to note that this function evaluates .txt files in your directory, so please run 'node cleanDirectory.js' to prevent other searches from compiling into your summary file.
+Creates a summary document which compiles your past .txt searches into one document. It's important to note that this function evaluates .txt files in your directory, so please run 'node cleanDirectory.js' before changing your search parameters to prevent different keyword search results from compiling into your summary file.
 ```
 node combineTweets-node.js
 ```

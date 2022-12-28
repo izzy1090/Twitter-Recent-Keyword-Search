@@ -39,11 +39,11 @@ Searches Twitter for relevant tweets from the past 7 days:
 node searchTwitter-node.js
 ```
 
-Utilizes node Cron to schedule tweets to run _n_ of times. Please refer to the documentation below for more information on how Cron works:
+Utilizes node Cron to schedule tweets to run _n_ number of times. Please refer to the documentation below for more information on how Cron works:
 
 https://www.npmjs.com/package/node-cron
 
-You can use the below URL to generate the required syntax for scheduling Cron to run your desired _n_ of times (make sure to update the 'scheduleTwitterSearch-node.js' script): 
+You can also use the URL below to generate the required syntax for scheduling Cron to run your desired _n_ number of times (make sure to update the 'scheduleTwitterSearch-node.js' and save your script): 
 
 https://crontab.guru/
 

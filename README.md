@@ -32,7 +32,7 @@ npm install
 
 To generate your desired search results, navigate to the 'searchParameters-node.js' script and change the passed-arguments for the userInput function (don't forget to save your JavaScript file afterwards). Now you should be ready to pull tweets from Twitter's API!
 
-**Here's a list of the features available to run via Node JS**
+**List of available CLI commands / program features are below.**
 
 Searches Twitter for relevant tweets from the past 7 days:
 ```

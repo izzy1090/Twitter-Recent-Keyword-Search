@@ -23,7 +23,7 @@ const getRecentTweets = async (keyword, filename) => {
             .then( response => response.json() )
             .then( rawTweets => {
                 // refers to 'data' key by value and moves tweets out of parent object
-                if ('data' in rawTweets){
+                if (rawTweets['data']){
                     const cleanedTweets = Object.assign(rawTweets['data'])
                     // subsequent JSON is converted into usable JSON of strings
                     const textDoc = JSON.stringify(cleanedTweets)

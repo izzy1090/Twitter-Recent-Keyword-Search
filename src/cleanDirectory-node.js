@@ -11,7 +11,7 @@ const { stderr } = require('process');
 const folderName = userParameters.desiredFilename.split(' ').join('_').replace('.txt','').toLowerCase()
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../searching-twitter');
+const fileDirectory = fs.readdirSync('../src');
 
 // checks to see if folder associated with search exists
     

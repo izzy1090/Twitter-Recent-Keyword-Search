@@ -10,7 +10,9 @@ const exactMinute = new Date().getMinutes();
 const uniqueFilename = exactMinute + userParameters.desiredFilename.split(' ').join('_').toLowerCase()
 // generate today's date for folder directory
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
-
+const test = async ()=>{
+    const result = await userParameters.userPrompt()
+}
 // func runScript grabs tweets and saves data as a file as well as a variable,
     // it then grabs the  variable and returns the filtered results to the console log 
 async function runScript(){
@@ -29,5 +31,4 @@ async function runScript(){
         console.log(err)
     }
 }
-
 runScript()

@@ -1,6 +1,17 @@
-// declared global variables to change with userInput
+const prompt = require('prompt');
+
+const userPrompt = () => {
+    prompt.start();
+
+    prompt.get(['search_term'], function( err, result){
+        return result.search_term;
+    })
+    
+}
+
+// declared global variables to change with userInput - used on searchTwitter-node.js
 var searchBy = "";
-var desiredFilename = '';
+var desiredFilename = "";
 
 // declared global variable to display tweet results
 var finalTweets;
@@ -22,10 +33,11 @@ function userInput(userSearch) {
 }
 
 // invoke the function with your intended search term(s)
-userInput("star wars");
+userInput('star wars');
 
 module.exports = {
     finalTweets,
     desiredFilename,
-    searchBy
+    searchBy,
+    userPrompt
 }

@@ -62,4 +62,3 @@ Cleans up the file directory and moves recent searches into a folder using searc
 ```
 node cleanDirectory-node.js
 ```
-d
